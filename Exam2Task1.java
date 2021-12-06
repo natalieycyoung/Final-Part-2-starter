@@ -44,12 +44,17 @@ class Exam2Task1Examples
 		return average;
 	}
 	
-	double[] doubles = {2, 4, 6, 8, 10};
-	double value = 6;
+	double[] doubles1 = {2, 4, 6, 8, 10};
+	double[] emptyArray = {};
+	double valInArray = 6;
+	double valNotInArray = 5;
 
 	void testAverageBeforeValue (Tester t)
 	{
-		t.checkExpect(averageBeforeValue(doubles, value), 3.0);
+		t.checkExpect(averageBeforeValue(doubles1, valInArray), 3.0);
+		t.checkExpect(averageBeforeValue(doubles1, valNotInArray), 6.0);
+		t.checkExpect(averageBeforeValue(emptyArray, 7), 0.0);
+		t.checkExpect(averageBeforeValue(doubles1, 2), 0.0);
 	}
 }
 /*
