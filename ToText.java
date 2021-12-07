@@ -23,7 +23,6 @@ class Point
 }
 
 
-
 interface Region
 {
 	boolean contains(Point p);
@@ -115,5 +114,26 @@ class IntersectRegion implements Region
 		String text = "Intersect(" + r1.toText() + ", " + r2.toText() + ")";
 
 		return text;
+	}
+}
+
+
+class ToTextExamples
+{
+	Point point1 = new Point(0, 0);
+	Point point2 = new Point(5, 5);
+	Point point3 = new Point(10, 10);
+
+	RectRegion rectangle = new RectRegion(point1, point2);
+	CircleRegion circle = new CircleRegion(point2, 2);
+	UnionRegion union = new UnionRegion(rectangle, circle);
+	IntersectRegion intersect = new IntersectRegion(rectangle, circle);
+
+	void testToText(Tester t)
+	{
+		t.checkExpect(rectangle.toText(), "Rectangle");
+		t.checkExpect(circle.toText(), "Circle");
+		t.checkExpect(union.toText(), "Union(Rectangle, Circle)");
+		t.checkExpect(intersect.toText(), "Intersect(Rectangle, Circle)");
 	}
 }

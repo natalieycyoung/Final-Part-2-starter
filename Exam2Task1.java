@@ -19,11 +19,29 @@ class Exam2Task1
 		System.out.println("averageBeforeValue: " + avgBeforeValue);
 	}
 	*/
+
+
+	public static void main(String[] args)
+	{
+		double[] videoTaskArray = {1, 2, 3, 4, 5};
+		double videoStopAt = 4;
+
+		System.out.println("Video Task Array:");
+
+		for (double doub : videoTaskArray)
+		{
+			System.out.print(doub + " ");
+		}
+
+		System.out.println("\nStop at: " + videoStopAt);
+
+		System.out.println("Average before value: " + Exam2Task1Examples.averageBeforeValue(videoTaskArray, videoStopAt));
+	}
 }
 
 class Exam2Task1Examples
 {
-	double averageBeforeValue(double[] doubles, double stopAt)
+	static double averageBeforeValue(double[] doubles, double stopAt)
 	{
 		double sum = 0;
 		int count;
@@ -38,6 +56,10 @@ class Exam2Task1Examples
 		{
 			sum += doubles[count];
 		}
+
+/*
+count start   count end   sum start   sum end
+*/
 
 		average = sum / count;
 
@@ -56,12 +78,5 @@ class Exam2Task1Examples
 		t.checkExpect(averageBeforeValue(emptyArray, 7), 0.0);
 		t.checkExpect(averageBeforeValue(doubles1, 2), 0.0);
 	}
-}
-/*
-class AverageBeforeTest
-{
-	Exam2Task1Examples ex1 = new Exam2Task1Examples();
-
 
 }
-*/
